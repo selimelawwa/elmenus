@@ -1,0 +1,43 @@
+<!-- <div id="search-component">
+  <div class="holder">
+    <i class="fa fa-search fa-left" aria-hidden="true"></i>
+    <input #searchBox id="search-box" class="form-control" (keyup)="search(searchBox.value)" placeholder="What are you craving now?"
+    />
+    <i class="fa fa-search fa-right" aria-hidden="true"></i>
+  </div>
+  <ul class="search-result">
+    <li *ngFor="let restaurant of restaurants$ | async">
+      <a routerLink="/detail/{{restaurant.id}}">
+        {{restaurant.name}}
+      </a>
+    </li>
+  </ul>
+</div> -->
+
+<div class="row">
+  <div class="header-container ">
+
+    <div>
+
+      <i class="fa fa-search fa-left" aria-hidden="true"></i>
+      <input #searchBox id="search-box" class=" myform-control form-control" (keyup)="search(searchBox.value)" placeholder="What are you craving now?"
+      />
+      <i class="fa fa-search fa-right" aria-hidden="true"></i>
+
+    </div>
+
+
+
+  </div>
+  <div class="results">
+    <ul class="search-result ">
+      <li *ngFor="let restaurant of restaurants$ | async">
+        <a (click)="clearSearch(); searchBox.value=''" routerLink="/detail/{{restaurant.id}}">
+          {{restaurant.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+</div>

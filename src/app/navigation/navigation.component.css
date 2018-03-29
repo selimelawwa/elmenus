@@ -1,0 +1,45 @@
+.navigation{
+    background-color: #2e2e2e;
+    width: 100%;
+    min-height: 20px!important;
+    display: flex;
+    justify-content: initial;
+    
+  
+    z-index: 0;
+    
+}
+
+
+.navbar-brand{
+    float: left;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 20px;
+    background-color: transparent;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 0;
+
+    
+}
+.search{
+    margin-left: 150px;
+  display: inline-block;
+  width: 600px;
+  height: 20px;
+  align-content: center;
+  margin-top: 10px;
+
+  
+}
+
+
+
+
+.navbar-brand .logo {
+    width: initial;
+    height: 38px;
+    margin-bottom: 0px;
+    margin-left: 0;
+}

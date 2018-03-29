@@ -1,0 +1,30 @@
+.restaurant-cover {
+    min-height: 350px;
+    background: #312e3f;
+    margin-top: -5px;
+    padding: 20px 0 25px 60px;
+    color: #fff;
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    line-height: 1.428571429;
+    z-index: 0;
+}
+.logo{
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+    vertical-align: top;
+    margin-bottom: 10px;
+}
+
+.name{
+    color: #fff;
+    font-size: 33px;
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    line-height: 1.428571429;
+    font-weight: 5700;
+    letter-spacing: 0.5px;
+}
+.address{
+    margin-left: 3px;
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+}
