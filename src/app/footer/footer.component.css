@@ -1,5 +1,11 @@
 .blackcontainer{
     background-color: #393536;
+    margin-top: 350px;
+}
+.logo{
+    height: 60px;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 p::before{
     content: "";
