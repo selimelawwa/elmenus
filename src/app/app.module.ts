@@ -18,6 +18,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
+import { MealService } from './meal.service';
 
 
 
@@ -47,7 +48,7 @@ import { FooterComponent } from './footer/footer.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [RestaurantService, MessageService],
+  providers: [RestaurantService, MessageService,MealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

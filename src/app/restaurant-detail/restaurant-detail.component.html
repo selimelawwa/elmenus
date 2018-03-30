@@ -1,52 +1,92 @@
 <app-navigation></app-navigation>
-<div class="row restaurant-cover">
-  <div class="col-md-4">
-    
-    <div *ngIf="restaurant">
-      <div>
-      <span ><img class="logo" src="{{restaurant.logo}}" alt=""></span>
-      <span class="name">{{ restaurant.name }}</span>
-      </div>
-      <!-- <div>
+<div class="mycontainer">
+
+  <div class="row restaurant-cover">
+    <div class="col-md-4">
+
+      <div *ngIf="restaurant">
+        <div>
+          <span>
+            <img class="logo" src="{{restaurant.logo}}" alt="">
+          </span>
+          <span class="name">{{ restaurant.name }}</span>
+        </div>
+        <!-- <div>
         <span>id: </span>{{restaurant.id}}
       </div> -->
-      <br>
-      <div>
-        <span><img src="assets/phone.svg" alt=""></span> <span>{{ restaurant.phone }}</span>
+        <br>
+        <div>
+          <span>
+            <img src="assets/phone.svg" alt="">
+          </span>
+          <span>{{ restaurant.phone }}</span>
+        </div>
+        <br>
+        <div>
+          <span>
+            <img src="assets/circle_open.svg" alt="">
+          </span>
+          <span>Open From 11:00 AM to 1:00 AM</span>
+        </div>
+        <br>
+        <div>
+          <span>
+            <img src="assets/cuisine.svg" alt="">
+          </span>
+          <span>{{ restaurant.food }}</span>
+        </div>
+        <br>
+        <br>
+        <div>
+          <label>name:
+            <input [(ngModel)]="restaurant.name" placeholder="name" />
+          </label>
+        </div>
+        <button (click)="goBack()">go back</button>
+        <button (click)="save()">save</button>
       </div>
-      <br>
-      <div>
-        <span>
-          <img src="assets/circle_open.svg" alt="">
-        </span>
-        <span>Open From 11:00 AM to 1:00 AM</span>
-      </div>
-      <br>
-      <div>
-        <span>
-          <img src="assets/cuisine.svg" alt="">
-        </span>
-        <span>{{ restaurant.food }}</span>
-      </div>
-      <br><br>
-      <div>
-        <label>name:
-          <input [(ngModel)]="restaurant.name" placeholder="name" />
-        </label>
-      </div>
-      <button (click)="goBack()">go back</button>
-      <button (click)="save()">save</button>
     </div>
+
+
+    <div class="col-md-4">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <span>
+        <img src="assets/location_white.png" alt="">
+      </span>
+      <span class="address">{{ restaurant.address }} </span>
+    </div>
+
   </div>
 
 
-  <div class="col-md-4">
-    <br>
-    <br><br>
-    <br><br>
-    <br>
-    <span><img src="assets/location_white.png" alt=""></span>
-    <span class="address">{{ restaurant.address }} </span>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 white nopadding">
+
+        <div class="menutitle">
+          <span>Food Menu</span>
+        </div>
+        <!-- menuitems to bechanged to col later -->
+        <div class="menuitems">
+        
+          <ul class="meal-ul">
+            <li class="meal-li" *ngFor="let meal of meals">
+              <a class="mealitem">
+                <span> {{meal.name}}</span>
+              </a>
+
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
   </div>
 
 </div>

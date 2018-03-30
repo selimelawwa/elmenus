@@ -1,15 +1,63 @@
 .blackcontainer{
     background-color: #393536;
     margin-top: 350px;
+        color: #959595;
 }
 .logo{
     height: 60px;
     margin-bottom: 25px;
-    margin-top: 25px;
+   
+}
+.myrow{
+ padding-top: 70px;
+ padding-left: 10px;
+ 
+}
+h2{
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    color: inherit;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 36px;    
+}
+p{
+    
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
 }
 p::before{
     content: "";
     
 }
 
+ul{
+    list-style: none;
+ 
+ padding-left: 0;
+}
+ul li{
+    border-bottom: 1px solid #959595;
+}
+ul :last-child{
+    border: none;
 
+
+}
+
+ul li a{
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    font-size: 15px;
+    color: #959595;
+    padding: 15px 0;
+    display: flex;
+       
+}
+.email{
+   margin-top: 0;
+    padding-top:0;
+    color: #555;
+    text-decoration: underline;
+}
+#last{
+    margin-bottom: 0;
+    padding-bottom:0;
+}

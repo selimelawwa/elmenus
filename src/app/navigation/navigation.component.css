@@ -4,9 +4,8 @@
     min-height: 20px!important;
     display: flex;
     justify-content: initial;
-    
-  
-    z-index: 0;
+
+    z-index: 1;
     
 }
 
@@ -29,8 +28,8 @@
   width: 600px;
   height: 20px;
   align-content: center;
-  margin-top: 10px;
-
+  margin-top: 5px;
+z-index: 1;
   
 }
 

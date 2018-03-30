@@ -1,6 +1,7 @@
 /* Search private styles */
 .results{
   width: 100%;
+  z-index: 1;;
   
 }
 .search-result li {
@@ -47,7 +48,7 @@ ul.search-result {
 
 
 
-.header-container{
+.search-container{
   background-color: #fff;
   width: 100%;
     height: 100%;
@@ -62,8 +63,8 @@ ul.search-result {
 .myform-control {
   display: inline-block;
   width: 81%;
-
-  line-height: 1.5;
+  margin: 0;
+  
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
@@ -83,10 +84,9 @@ ul.search-result {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 18px;
-    left: 10px;
     top: -5px;
     padding-left: 15px;
-    
+
     color: #aaa;
 }
 
@@ -111,3 +111,41 @@ ul.search-result {
 
 
 
+/* .search-container{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  
+}
+.myform-control{
+  left: 10px;
+  position: relative;
+  width: calc(100% - 150px);
+  height: 100%;
+  display: inline-block;
+  margin: 0 1px 0 0;
+  border: none;
+  font-size: 24px;
+  font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+}
+.fa{
+  display: inline-block;
+  position: relative;
+  font-size: 19px;
+  padding: 15px 25px 15px 25px;
+  margin: 0;
+}
+.fa-left{
+  left: 0;
+  color: #aaa;
+}
+.fa-right{
+  right: 0;
+  background: #e65339;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  padding-left: 27px;
+  
+} */

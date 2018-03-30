@@ -1,3 +1,9 @@
+.mycontainer{
+    
+    background-color: #f3f3f3;
+
+}
+
 .restaurant-cover {
     min-height: 350px;
     background: #312e3f;
@@ -7,6 +13,7 @@
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
     line-height: 1.428571429;
     z-index: 0;
+    margin-bottom: 25px;
 }
 .logo{
     width: 80px;
@@ -27,4 +34,33 @@
 .address{
     margin-left: 3px;
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+}
+
+
+.container{margin-top: 20px;}
+.white{background-color: #fff;}
+.nopadding{padding: 0;}
+
+.menutitle{
+    color: #1f262e;
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: 5px 0 5px 5px;
+    border-bottom: rgb(235, 235, 235) solid 1px;
+    
+}
+.meal-ul{
+    list-style: none;
+    padding-left: 0;
+    
+}
+.meal-li{
+    padding: 20px 0 20px 0; 
+    border-bottom: rgb(235, 235, 235) solid 1px;
+}
+.mealitem{
+    padding-left: 10px;
 }

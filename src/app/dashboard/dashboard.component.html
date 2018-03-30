@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <h3>Top Restaurants</h3>
 <div class="grid grid-pad">
   <a *ngFor="let restaurant of restaurants" class="col-1-4"  routerLink="/detail/{{restaurant.id}}">
@@ -6,4 +7,5 @@
     </div>
   </a>
 </div>
-<app-restaurant-search></app-restaurant-search>
+
+

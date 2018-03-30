@@ -3,6 +3,8 @@ import { Restaurant } from '../restaurant';
 //import { RESTAURANTS } from '../mock-restaurants';
 import { RestaurantService } from '../restaurant.service';
 //import { MessageService } from '../message.service';
+import { Meal } from '../meal';
+import {MealService} from '../meal.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -12,17 +14,17 @@ import { RestaurantService } from '../restaurant.service';
 export class RestaurantsComponent implements OnInit {
 
   restaurants: Restaurant[]; //array of restaurant
+  meals: Meal[];
 
   selectedRestaurant: Restaurant; //restaurant object
-
-//  onSelect(restaurant: Restaurant): void {
-//     this.selectedRestaurant = restaurant;
-//     this.messageService.add(this.selectedRestaurant.name);
-//   } 
 
   getRestaurants(): void {
     this.restaurantService.getRestaurants().subscribe(restaurants => this.restaurants = restaurants);
   }
+  getMeals(): void{
+    this.mealService.getMeals().subscribe(meals => this.meals = meals);
+  }
+
 
   add(name: string): void {
     name = name.trim();
@@ -38,10 +40,12 @@ export class RestaurantsComponent implements OnInit {
     this.restaurantService.deleteRestaurant(restaurant).subscribe();
   }
 
-  constructor(private restaurantService: RestaurantService) { }
+  constructor(private restaurantService: RestaurantService, private mealService: MealService) { }
 
   ngOnInit() {
     this.getRestaurants();
+    this.getMeals();
+    
   }
 
 }

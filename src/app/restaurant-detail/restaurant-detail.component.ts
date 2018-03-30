@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { RestaurantService } from '../restaurant.service';
+import { Meal } from '../meal';
+import { MealService } from '../meal.service';
+
 
 @Component({
   selector: 'app-restaurant-detail',
@@ -13,10 +16,11 @@ import { RestaurantService } from '../restaurant.service';
 export class RestaurantDetailComponent implements OnInit {
 
   @Input() restaurant: Restaurant;
+  @Input() meals: Meal[];
 
   constructor(private route: ActivatedRoute,
     private restaurantService: RestaurantService,
-    private location: Location, private router: Router) {
+    private location: Location, private router: Router, private mealService: MealService) {
     router.events.subscribe((val) => {
       if (location.path() != '') {
         this.getRestaurant();
@@ -27,6 +31,7 @@ export class RestaurantDetailComponent implements OnInit {
   ngOnInit(): void {
 
     this.getRestaurant();
+    this.getMeals();
   }
 
 
@@ -39,6 +44,12 @@ export class RestaurantDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.restaurantService.getRestaurant(id)
       .subscribe(restaurant => this.restaurant = restaurant);
+
+    
+  }
+
+  getMeals(): void {
+    this.mealService.getMeals().subscribe(meals => this.meals = meals);
   }
 
   save(): void {
