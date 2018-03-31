@@ -6,6 +6,10 @@ h2 {
 }
 body {
   margin: 2em;
+  
+}
+.blue-bcg{
+  background-color: aqua;
 }
 body, input[text], button {
   color: crimson;

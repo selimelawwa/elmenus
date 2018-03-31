@@ -1,88 +1,117 @@
 <app-navigation></app-navigation>
 <div class="mycontainer">
 
-  <div class="row restaurant-cover">
-    <div class="col-md-4">
+  <div class="restaurant-cover">
+    <div class="container">
+      <div class="row">
 
-      <div *ngIf="restaurant">
-        <div>
+        <div class="col-md-4">
+
+          <div *ngIf="restaurant">
+            <div>
+              <span>
+                <img class="logo" src="{{restaurant.logo}}" alt="">
+              </span>
+              <span class="restaurant-name">{{ restaurant.name }}</span>
+            </div>
+
+            <br>
+            <div>
+              <span>
+                <img src="assets/phone.svg" alt="">
+              </span>
+              <span>{{ restaurant.phone }}</span>
+            </div>
+            <br>
+            <div>
+              <span>
+                <img src="assets/circle_open.svg" alt="">
+              </span>
+              <span>Open From 11:00 AM to 1:00 AM</span>
+            </div>
+            <br>
+            <div>
+              <span>
+                <img src="assets/cuisine.svg" alt="">
+              </span>
+              <span>{{ restaurant.food }}</span>
+            </div>
+            <br>
+            <br>
+            <div>
+              <label>name:
+                <input [(ngModel)]="restaurant.name" placeholder="name" />
+              </label>
+            </div>
+            <button (click)="goBack()">go back</button>
+            <button (click)="save()">save</button>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           <span>
-            <img class="logo" src="{{restaurant.logo}}" alt="">
+            <img src="assets/location_white.png" alt="">
           </span>
-          <span class="name">{{ restaurant.name }}</span>
+          <span class="restaurant-address">{{ restaurant.address }} </span>
         </div>
-        <!-- <div>
-        <span>id: </span>{{restaurant.id}}
-      </div> -->
-        <br>
-        <div>
-          <span>
-            <img src="assets/phone.svg" alt="">
-          </span>
-          <span>{{ restaurant.phone }}</span>
-        </div>
-        <br>
-        <div>
-          <span>
-            <img src="assets/circle_open.svg" alt="">
-          </span>
-          <span>Open From 11:00 AM to 1:00 AM</span>
-        </div>
-        <br>
-        <div>
-          <span>
-            <img src="assets/cuisine.svg" alt="">
-          </span>
-          <span>{{ restaurant.food }}</span>
-        </div>
-        <br>
-        <br>
-        <div>
-          <label>name:
-            <input [(ngModel)]="restaurant.name" placeholder="name" />
-          </label>
-        </div>
-        <button (click)="goBack()">go back</button>
-        <button (click)="save()">save</button>
+
       </div>
     </div>
-
-
-    <div class="col-md-4">
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <span>
-        <img src="assets/location_white.png" alt="">
-      </span>
-      <span class="address">{{ restaurant.address }} </span>
-    </div>
-
   </div>
 
 
 
-  <div class="container">
+  <div class="container meal-container">
     <div class="row">
-      <div class="col-md-8 white nopadding">
+      <div class="col-md-8 white ">
 
-        <div class="menutitle">
-          <span>Food Menu</span>
+        <div class="row">
+          <div class="menutitle">
+            <span>Food Menu</span>
+          </div>
         </div>
-        <!-- menuitems to bechanged to col later -->
-        <div class="menuitems">
         
-          <ul class="meal-ul">
-            <li class="meal-li" *ngFor="let meal of meals">
-              <a class="mealitem">
-                <span> {{meal.name}}</span>
-              </a>
+        <div class="row">
+          <div class="col-md-3 nopadding-left noppading-right">
+            <div class="side-col">
+              <ul class="meal-side-ul">
+                <li class="meal-side-li" *ngFor="let meal of meals">
+                  <span class="meal-name-side"> {{meal.name}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-            </li>
-          </ul>
+          <div class="col-md-9 meal-details nopadding-left noppading-right">
+
+            <ul class="meal-ul">
+              <li class="meal-li" *ngFor="let meal of meals">
+
+                <div class="meal-photo-container">
+                  <img class="meal-photo" src={{meal.photo}}>
+                </div>
+                <div class="meal-info">
+                  <div class="mealitem">
+                    <span class="meal-name"> {{meal.name}}</span>
+                    <span class="meal-price">{{meal.price}}</span>
+                  </div>
+                  <div class="meal-desc">
+                    <span>{{meal.ingredients}}</span>
+                  </div>
+                </div>
+
+              </li>
+            </ul>
+
+          </div>
+
         </div>
 
       </div>

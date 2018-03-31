@@ -7,8 +7,7 @@
 .restaurant-cover {
     min-height: 350px;
     background: #312e3f;
-    margin-top: -5px;
-    padding: 20px 0 25px 60px;
+    padding: 20px 0 25px 0;
     color: #fff;
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
     line-height: 1.428571429;
@@ -23,7 +22,7 @@
     margin-bottom: 10px;
 }
 
-.name{
+.restaurant-name{
     color: #fff;
     font-size: 33px;
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
@@ -31,36 +30,119 @@
     font-weight: 5700;
     letter-spacing: 0.5px;
 }
-.address{
+.restaurant-address{
     margin-left: 3px;
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
 }
 
 
-.container{margin-top: 20px;}
-.white{background-color: #fff;}
+.meal-container{margin-top: 100px; 
+    
+}
+.white{
+    background-color: #fff;
+    border: rgb(235, 235, 235) solid 1px;
+    margin-bottom: 50px;
+}
 .nopadding{padding: 0;}
-
+.noppading-right{ padding-right: 0;}
+.nopadding-left{padding-left: 0;}
 .menutitle{
     color: #1f262e;
     font-family: "Fira Sans",Helvetica,Arial,sans-serif;
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 600;
+    font-weight: bolder;
     padding: 5px 0 5px 5px;
     border-bottom: rgb(235, 235, 235) solid 1px;
+    width: 100%;
     
+}
+.meal-details{
+    margin-left: 0;
+    border: rgb(235, 235, 235) solid 1px;
 }
 .meal-ul{
     list-style: none;
     padding-left: 0;
-    
+    margin-bottom: 0;
 }
 .meal-li{
     padding: 20px 0 20px 0; 
     border-bottom: rgb(235, 235, 235) solid 1px;
+    
 }
 .mealitem{
     padding-left: 10px;
+}
+.meal-price{
+    float: right;
+    font-size: 15px;
+    color: #9c9c9c;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    font-weight: bold;
+    padding-right: 5px;
+}
+.meal-price::after{
+    display: table;
+    content: "";
+}
+.meal-name{
+    font-size: 16px;
+    font-weight: bold;
+    color: #1f262e;
+}
+.meal-desc{
+    
+    font-size: 12px;
+    font-family: "Fira Sans",Helvetica,Arial,sans-serif;
+    padding: 8px 1px 4px 10px;
+}
+.meal-photo{
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+}
+.meal-photo-container{
+display: table-cell;
+}
+.meal-info{
+    vertical-align: top;
+    width:100%;
+    display: table-cell;
+}
+
+.side-col{
+    border-right: rgb(235, 235, 235) solid 1px;
+    width: 100%;
+    margin-right: 0;    
+    
+}
+.meal-side-ul{
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    
+    
+}
+.meal-side-li{
+    border-bottom: rgb(235, 235, 235) solid 1px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.meal-name-side{
+    
+    color: #777;
+    font-size: 16px;
+    font-weight: 500;
+    padding-left: 5px;
+    padding-bottom: 10px;
+    text-align: left;
+    
+    
 }
