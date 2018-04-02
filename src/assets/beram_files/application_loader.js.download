@@ -1,0 +1,96 @@
+var decideLangByUrl = function (localStorageSrv,lang,$rootScope) {
+
+    if (lang === 'ar') {
+        localStorageSrv.setItem("activeLang", 'ar');
+    } else {
+        localStorageSrv.setItem("activeLang", 'en');
+    }
+    $rootScope.activeLang = localStorageSrv.getItem("activeLang");
+};
+$('body').ready(function () {
+    var $injector = angular.injector(['ng','core','ngCookies']);
+    $rootScope = $injector.get('$rootScope');
+    LocalStorageSrv = $injector.get('LocalStorageSrv');
+    if(location.pathname[location.pathname.length-1]=='/' && location.pathname != '/'){
+        location.pathname=location.pathname.substring(0,location.pathname.length-1)
+    }
+
+    var url = location.pathname.split('/');
+    var city = url[1] ;
+    decideLangByUrl(LocalStorageSrv,city,$rootScope);
+    if ( LocalStorageSrv.getItem("activeLang") ==  'ar' &&  url[1] == "") {
+        location.href += 'ar' ;
+    }
+
+    if ( city == 'ar' ){
+        LocalStorageSrv.setItem("activeLang" , 'ar');
+        city = location.pathname.substr(3,location.pathname.length).split('/')[1];
+    }
+
+    if (
+        ( !city || city == "" )
+        && LocalStorageSrv.getItem('selected_city')
+        && JSON.parse(LocalStorageSrv.getItem('selected_city')).name != 'Cairo'
+        && JSON.parse(LocalStorageSrv.getItem('selected_city')).nameEn != 'Cairo' )
+    {
+        var path = '';
+        if ( !city && city != "" )
+            path = '/';
+        if ( LocalStorageSrv.getItem("activeLang") ==  'ar' ) {
+            city = JSON.parse(LocalStorageSrv.getItem('selected_city')).nameAr.toString().toLowerCase().split(' ').join('-');
+        }else {
+            city = JSON.parse(LocalStorageSrv.getItem('selected_city')).nameEn.toString().toLowerCase().split(' ').join('-');
+        }
+        path += city ;
+        location.href += path ;
+    }
+
+
+    if (!city || city == 'restaurant' || city == 's' || city == 'users') {
+        angular.bootstrap(document.body, ['elmenus']);
+    }
+    else
+    {
+        if (
+            (
+                ( LocalStorageSrv.getItem("activeLang") ==  'ar' && url[1] == 'ar')  ||
+                LocalStorageSrv.getItem("activeLang") !=  'ar'
+            ) &&
+            ( LocalStorageSrv.getItem('selected_city') &&
+                (
+                    city == JSON.parse(LocalStorageSrv.getItem('selected_city')).nameEn.toString().toLowerCase().split(' ').join('-') ||
+                    decodeURIComponent(city) == JSON.parse(LocalStorageSrv.getItem('selected_city')).nameAr.toString().toLowerCase().split(' ').join('-')
+                )
+            )
+        ) {
+            angular.bootstrap(document.body, ['elmenus']);
+        } else {
+            var API = $injector.get("API");
+            API.search.cities()
+                .then(function (cities) {
+                    if (location.pathname.indexOf('restaurant') == -1) {
+                        for (var i = 0; i < cities.length; i++) {
+                            cities[i].index = i;
+                            if (cities[i].nameEn.toString().toLowerCase().split(' ').join('-') == city ) {
+                                LocalStorageSrv.setItem('selected_city',JSON.stringify(cities[i]));
+                                break;
+                            }
+                            else if ( cities[i].nameAr.toString().toLowerCase().split(' ').join('-') == decodeURIComponent(city) ) {
+                                LocalStorageSrv.setItem("activeLang" , 'ar');
+                                LocalStorageSrv.setItem('selected_city',JSON.stringify(cities[i]));
+                                break;
+                            }
+                        }
+                    }
+                    if (  LocalStorageSrv.getItem("activeLang") ===  "ar" && url[1] !== "ar") {
+                        /**
+                         * for now we accept any url as it is ,
+                         * TODO allow this and find a fix for seo redirects
+                         */
+                        //location.pathname = '/ar' + location.pathname;
+                    }
+                    angular.bootstrap(document.body, ['elmenus']);
+                })
+        }
+    }
+})

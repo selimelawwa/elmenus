@@ -24,13 +24,13 @@ export class MealService {
       );
   }
 
-  getMeal(id: number): Observable<Meal> {
-    const url = `${this.mealsUrl}/${id}`;
-    return this.http.get<Meal>(url).pipe(
-      tap(_ => this.log(`fetched meal id=${id}`)),
-      catchError(this.handleError<Meal>(`getMeal id=${id}`))
+  getMealsofRestaurant(rid: number): Observable<Meal[]>{
+    return this.http.get<Meal[]>(this.mealsUrl + "?rid=" + rid).pipe(
+      tap(meals => console.log('fetched meals'))
     );
   }
+
+
 
   /**
  * Handle Http operation that failed.

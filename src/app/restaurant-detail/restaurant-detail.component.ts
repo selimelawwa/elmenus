@@ -44,13 +44,19 @@ export class RestaurantDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.restaurantService.getRestaurant(id)
       .subscribe(restaurant => this.restaurant = restaurant);
-
+   
     
   }
 
+  // getMeals(): void {
+  //   this.mealService.getMeals().subscribe(meals => this.meals = meals);
+  // }
+
   getMeals(): void {
-    this.mealService.getMeals().subscribe(meals => this.meals = meals);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.mealService.getMealsofRestaurant(id).subscribe(meals => this.meals = meals);
   }
+
 
   save(): void {
     this.restaurantService.updateRestaurant(this.restaurant)
